@@ -1,5 +1,6 @@
 import subprocess
 import yaml
+from argparse import ArgumentParser
 import pyperclip
 import pyautogui
 
@@ -25,4 +26,12 @@ def get_actions(file_name):
         subprocess.run(cmd, shell=True, check=True)
 
 
-get_actions('cmds.yaml')
+parser = ArgumentParser("Performs actions in order given in your yaml file.")
+parser.add_argument("-f",
+                    "--yaml_file",
+                    help="Executes shell scripts in typed order",
+                    default="cmds.yaml")
+
+args = parser.parse_args()
+
+get_actions(args.yaml_file)
