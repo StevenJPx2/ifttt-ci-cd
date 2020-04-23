@@ -1,0 +1,7 @@
+then:
+  - echo hello
+  - copy: stuff
+    cmd: echo <paste>
+  - copy: echo this is fully copied
+    cmd: <paste>
+  - echo this is prolly bad
