@@ -1,7 +1,8 @@
 then:
-  - echo hello
-  - copy: stuff
-    cmd: echo <paste>
-  - copy: echo this is fully copied
-    cmd: <paste>
-  - echo this is prolly bad
+  - ssh: ssh -i "~/.ssh/id_rsa.pub" root@139.180.195.184
+    cmd: 
+    - expect: "root@139.180.195.184's password:"
+      send: ?9Geb?(dXDY5Rr]8
+    - expect: root@vultr:~#
+      send: ls
+  - sleep 1
